@@ -1,0 +1,11 @@
+pipeline{
+  agent any 
+  stages{
+    stage('Bomanai'){
+      steps{
+         sh 'pip install -i https://test.pypi.org/simple/ boman-cli-uat==0.22'
+         sh '~/.local/bin/boman-cli -a run -cicd jenkins -u https://devapi.boman.ai/v2/'
+      }
+    }
+  }
+}
